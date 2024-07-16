@@ -1,6 +1,6 @@
 # Filename: databricks.yml
 bundle:
-  name: <bundle-name>
+  name: cicd_demo
 
 variables:
   job_prefix:
@@ -16,7 +16,7 @@ variables:
 artifacts:
   dabdemo-wheel:
     type: whl
-    path: ./Libraries/python/dabdemo
+    path: ./dabdemo
 
 resources:
   jobs:
