@@ -1,7 +1,7 @@
 # Filename: test_addcol.py
 import pytest
 from pyspark.sql import SparkSession
-from dabdemo.addcol import *
+from addcol import *
 
 class TestAppendCol(object):
 
