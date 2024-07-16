@@ -29,9 +29,9 @@ steps:
 # The objective here is to add all files intended for the current release.
 - script: |
     git diff --name-only --diff-filter=AMR HEAD^1 HEAD | xargs -I '{}' cp --parents -r '{}' $(Build.BinariesDirectory)
-    mkdir -p $(Build.BinariesDirectory)/Libraries/python/dabdemo/dabdemo
-    cp $(Build.Repository.LocalPath)/Libraries/python/dabdemo/dabdemo/*.* $(Build.BinariesDirectory)/Libraries/python/dabdemo/dabdemo
-    cp $(Build.Repository.LocalPath)/Libraries/python/dabdemo/setup.py $(Build.BinariesDirectory)/Libraries/python/dabdemo
+    mkdir -p $(Build.BinariesDirectory)/dabdemo/dabdemo
+    cp $(Build.Repository.LocalPath)/dabdemo/dabdemo/*.* $(Build.BinariesDirectory)/dabdemo/dabdemo
+    cp $(Build.Repository.LocalPath)/dabdemo/setup.py $(Build.BinariesDirectory)/dabdemo
     cp $(Build.Repository.LocalPath)/*.* $(Build.BinariesDirectory)
   displayName: 'Get Changes'
 
