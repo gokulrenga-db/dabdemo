@@ -19,4 +19,4 @@ retcode = pytest.main(["--junit-xml", f"/Workspace{os.getenv('WORKSPACEBUNDLEPAT
                       f"/Workspace{os.getenv('WORKSPACEBUNDLEPATH')}/files/Libraries/python/dabdemo/dabdemo/"])
 
 # Fail the cell execution if there are any test failures.
-assert retcode == 0, "The pytest invocation failed. See the log for details."1:wq
+assert retcode == 0, "The pytest invocation failed. See the log for details."
