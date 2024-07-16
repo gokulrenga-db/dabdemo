@@ -16,7 +16,7 @@ variables:
 artifacts:
   dabdemo-wheel:
     type: whl
-    path: ./dabdemo
+    path: ../dabdemo
 
 resources:
   jobs:
