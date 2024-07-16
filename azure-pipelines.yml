@@ -31,7 +31,7 @@ steps:
     git diff --name-only --diff-filter=AMR HEAD^1 HEAD | xargs -I '{}' cp --parents -r '{}' $(Build.BinariesDirectory)
     mkdir -p $(Build.BinariesDirectory)/dabdemo/dabdemo
     cp $(Build.Repository.LocalPath)/dabdemo/dabdemo/*.* $(Build.BinariesDirectory)/dabdemo/dabdemo
-    cp $(Build.Repository.LocalPath)/dabdemo/setup.py $(Build.BinariesDirectory)/dabdemo
+    cp $(Build.Repository.LocalPath)/dabdemo/*.* $(Build.BinariesDirectory)/dabdemo
     cp $(Build.Repository.LocalPath)/*.* $(Build.BinariesDirectory)
   displayName: 'Get Changes'
 
