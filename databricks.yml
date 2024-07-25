@@ -21,7 +21,7 @@ artifacts:
 resources:
   jobs:
     run-unit-tests:
-      name: ${var.job_prefix}-run-unit-tests
+      name: ${var.job_prefix}-run-unit-tests-new
       access_control_list:
         - user_name: gokul.renganathan@databricks.com
           permission_level: CAN_VIEW
