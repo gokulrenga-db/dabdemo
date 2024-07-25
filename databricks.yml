@@ -22,9 +22,9 @@ resources:
   jobs:
     run-unit-tests:
       name: ${var.job_prefix}-run-unit-tests-new
-      access_control_list:
+      permissions:
         - user_name: gokul.renganathan@databricks.com
-          permission_level: CAN_VIEW
+          level: CAN_VIEW
       tasks:
         - task_key: ${var.job_prefix}-run-unit-tests-task
           new_cluster:
