@@ -29,10 +29,7 @@ steps:
 # The objective here is to add all files intended for the current release.
 - script: |
     git diff --name-only --diff-filter=AMR HEAD^1 HEAD | xargs -I '{}' cp --parents -r '{}' $(Build.BinariesDirectory)
-    mkdir -p $(Build.BinariesDirectory)/dabdemo/dabdemo
-    cp $(Build.Repository.LocalPath)/dabdemo/dabdemo/*.* $(Build.BinariesDirectory)/dabdemo/dabdemo
-    cp $(Build.Repository.LocalPath)/dabdemo/*.* $(Build.BinariesDirectory)/dabdemo
-    cp $(Build.Repository.LocalPath)/*.* $(Build.BinariesDirectory)
+    cp -R $(Build.Repository.LocalPath)/*.* $(Build.BinariesDirectory)
   displayName: 'Get Changes'
 
 # Create the deployment artifact and then publish it to the
