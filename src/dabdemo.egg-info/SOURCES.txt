@@ -1,10 +1,7 @@
 README.md
 setup.py
 src/dabdemo/__init__.py
-src/dabdemo/__main__.py
-src/dabdemo/addcol.py
 src/dabdemo/main.py
-src/dabdemo/test_addcol.py
 src/dabdemo.egg-info/PKG-INFO
 src/dabdemo.egg-info/SOURCES.txt
 src/dabdemo.egg-info/dependency_links.txt

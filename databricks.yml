@@ -1,55 +1,19 @@
-# Filename: databricks.yml
+# This is a Databricks asset bundle definition for db_connect_example.
+# See https://docs.databricks.com/dev-tools/bundles/index.html for documentation.
 bundle:
   name: dabdemo
 
-variables:
-  job_prefix:
-    description: A unifying prefix for this bundle's job and task names.
-    default: cicd-demo
-  spark_version:
-    description: The cluster's Spark version ID.
-    default: 15.4.x-scala2.12
-  node_type_id:
-    description: The cluster's node type ID.
-    default: Standard_DS3_v2 
-
-resources:
-  jobs:
-    run-unit-tests:
-      name: ${var.job_prefix}-run-unit-tests-new
-      permissions:
-        - user_name: gokul.renganathan@databricks.com
-          level: CAN_VIEW
-      tasks:
-        - task_key: ${var.job_prefix}-run-unit-tests-task
-          new_cluster:
-            spark_version: ${var.spark_version}
-            node_type_id: ${var.node_type_id}
-            num_workers: 1
-          python_wheel_task:
-            package_name: dabdemo
-            entry_point: main
-          libraries:
-            - pypi:
-                package: pytest
-            - whl: /dist/*.whl
-        
-    run-dabdemo-notebook:
-      name: ${var.job_prefix}-run-dabdemo-notebook
-      tasks:
-        - task_key: ${var.job_prefix}-run-dabdemo-notebook-task
-          new_cluster:
-            spark_version: ${var.spark_version}
-            node_type_id: ${var.node_type_id}
-            num_workers: 1
-          notebook_task:
-            notebook_path: /src/dabdemo_notebook.py
-            source: WORKSPACE
-          libraries:
-            - whl: /dist/*.whl
+include:
+  - resources/*.yml
 
 targets:
   dev:
+    # The default target uses 'mode: development' to create a development copy.
+    # - Deployed resources get prefixed with '[dev my_user_name]'
+    # - Any job schedules and triggers are paused by default.
+    # See also https://docs.databricks.com/dev-tools/bundles/deployment-modes.html.
     mode: development
+    default: true
     workspace:
-      host: https://adb-984752964297111.11.azuredatabricks.net/
+      host: https://adb-984752964297111.11.azuredatabricks.net
+
