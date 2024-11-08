@@ -3,7 +3,10 @@ resources:
   jobs:
     dabdemo_example_job:
       name: dabdemo_example_job_new
-
+      permissions:
+        - user_name: gokul.renganathan@databricks.com
+          level: CAN_VIEW
+          
       trigger:
         # Run this job every day, exactly one day from the last run; see https://docs.databricks.com/api/workspace/jobs/create#trigger
         periodic:
