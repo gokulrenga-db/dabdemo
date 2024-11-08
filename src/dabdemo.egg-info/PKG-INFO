@@ -1,0 +1,6 @@
+Metadata-Version: 2.1
+Name: dabdemo
+Version: 0.0.1
+Summary: cicd test
+Author-email: gokul.renganathan@databricks.com
+Requires-Dist: setuptools

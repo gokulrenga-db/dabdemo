@@ -1,6 +1,6 @@
 # Filename: databricks.yml
 bundle:
-  name: cicd_demo
+  name: dabdemo
 
 variables:
   job_prefix:
@@ -8,15 +8,10 @@ variables:
     default: cicd-demo
   spark_version:
     description: The cluster's Spark version ID.
-    default: 14.3.x-scala2.12
+    default: 15.4.x-scala2.12
   node_type_id:
     description: The cluster's node type ID.
     default: Standard_DS3_v2 
-
-artifacts:
-  dabdemo-wheel:
-    type: whl
-    path: ./dabdemo
 
 resources:
   jobs:
@@ -31,14 +26,13 @@ resources:
             spark_version: ${var.spark_version}
             node_type_id: ${var.node_type_id}
             num_workers: 1
-            spark_env_vars:
-              WORKSPACEBUNDLEPATH: ${workspace.root_path}
-          notebook_task:
-            notebook_path: ./run_unit_tests.py
-            source: WORKSPACE
+          python_wheel_task:
+            package_name: dabdemo
+            entry_point: main
           libraries:
             - pypi:
                 package: pytest
+            - whl: /dist/*.whl
         
     run-dabdemo-notebook:
       name: ${var.job_prefix}-run-dabdemo-notebook
@@ -48,14 +42,14 @@ resources:
             spark_version: ${var.spark_version}
             node_type_id: ${var.node_type_id}
             num_workers: 1
-            spark_env_vars:
-              WORKSPACEBUNDLEPATH: ${workspace.root_path}
           notebook_task:
-            notebook_path: ./dabdemo_notebook.py
+            notebook_path: /src/dabdemo_notebook.py
             source: WORKSPACE
           libraries:
-            - whl: "/Workspace${workspace.root_path}/files/Libraries/python/dabdemo/dist/dabdemo-0.0.1-py3-none-any.whl"
+            - whl: /dist/*.whl
 
 targets:
   dev:
     mode: development
+    workspace:
+      host: https://adb-984752964297111.11.azuredatabricks.net/
