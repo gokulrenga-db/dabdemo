@@ -29,7 +29,7 @@ steps:
 # The objective here is to add all files intended for the current release.
 - script: |
     git diff --name-only --diff-filter=AMR HEAD^1 HEAD | xargs -I '{}' cp --parents -r '{}' $(Build.BinariesDirectory)
-    ls $(Build.Repository.LocalPath)/
+    ls $(Build.Repository.LocalPath)/src/dabdemo
     mkdir -p $(Build.BinariesDirectory)/src
     mkdir -p $(Build.BinariesDirectory)/resources
     mkdir -p $(Build.BinariesDirectory)/tests
