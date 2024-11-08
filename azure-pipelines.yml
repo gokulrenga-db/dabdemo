@@ -31,9 +31,11 @@ steps:
     git diff --name-only --diff-filter=AMR HEAD^1 HEAD | xargs -I '{}' cp --parents -r '{}' $(Build.BinariesDirectory)
     ls $(Build.Repository.LocalPath)/
     mkdir -p $(Build.BinariesDirectory)/src
+    mkdir -p $(Build.BinariesDirectory)/src/dabdemo
     mkdir -p $(Build.BinariesDirectory)/resources
     mkdir -p $(Build.BinariesDirectory)/tests
-    cp $(Build.Repository.LocalPath)/src/*.* $(Build.BinariesDirectory)/src
+    cp -R $(Build.Repository.LocalPath)/src/*.* $(Build.BinariesDirectory)/src
+    
     cp $(Build.Repository.LocalPath)/resources/*.* $(Build.BinariesDirectory)/resources
     cp $(Build.Repository.LocalPath)/tests/*.* $(Build.BinariesDirectory)/tests
     cp $(Build.Repository.LocalPath)/*.* $(Build.BinariesDirectory)
