@@ -1,10 +1,10 @@
 
 resources:
   jobs:
-    dabdemo_example_job:
-      name: dabdemo_example_job
+    dabdemo_example_job_new:
+      name: dabdemo_example_job_new
       permissions:
-        - user_name: gokul.renganathan@databricks.com
+        - group_name: account users
           level: CAN_MANAGE
 
       trigger:
