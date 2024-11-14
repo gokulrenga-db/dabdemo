@@ -1,6 +1,27 @@
 
 resources:
   jobs:
+    run-unit-tests:
+      name: run-unit-tests-new
+      permissions:
+        - user_name: gokul.renganathan@databricks.com
+          level: CAN_MANAGE
+      tasks:
+        - task_key: run-unit-tests-task
+          new_cluster:
+            spark_version: 15.4.x-scala2.12
+            node_type_id: Standard_D3_v2
+            num_workers: 1
+            spark_env_vars:
+              WORKSPACEBUNDLEPATH: ${workspace.root_path}
+          notebook_task:
+            notebook_path: ../sample_test.py
+            source: WORKSPACE
+          libraries:
+            - whl: ../dist/*.whl
+            - pypi:
+                package: pytest
+
     dabdemo_example_job_new:
       name: dabdemo_example_job_new
       permissions:

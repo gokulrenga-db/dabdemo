@@ -1,2 +1,12 @@
 
 .databricks
+src/dabdemo/__pycache__/main.cpython-311.pyc
+src/dabdemo.egg-info/PKG-INFO
+tests/__pycache__/main_test.cpython-311-pytest-8.3.3.pyc
+tests/__pycache__/sample_test.cpython-311-pytest-8.3.3.pyc
+tests/__pycache__/main_test.cpython-311-pytest-8.3.3.pyc
+src/dabdemo/__pycache__/main.cpython-311.pyc
+src/dabdemo.egg-info/PKG-INFO
+tests/__pycache__/main_test.cpython-311-pytest-8.3.3.pyc
+dist/dabdemo-0.0.1+20241108.123554-py3-none-any.whl
+dist/dabdemo-0.0.1+20241114.141535-py3-none-any.whl
